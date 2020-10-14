@@ -1,0 +1,10 @@
+<form [formGroup]="form">
+
+    <input type="text" placeholder="Margherita" formControlName="name" />
+
+    <input type="text" placeholder="with cheese" formControlName="description" />
+
+    <input type="text" placeholder="http://server.name/img_name.jpg" formControlName="photoUrl" />
+
+    <button [disabled]="form.invalid" (click)="submitForm()">Dodaj</button>
+</form>

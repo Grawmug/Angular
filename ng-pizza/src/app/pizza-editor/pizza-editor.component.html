@@ -1,0 +1,5 @@
+<button mat-button (click)="addPizza()">Dodaj pizze</button>
+
+<ng-container *ngIf="showEditor">
+    <app-pizza-form (save)="savePizza($event)"></app-pizza-form>
+</ng-container>

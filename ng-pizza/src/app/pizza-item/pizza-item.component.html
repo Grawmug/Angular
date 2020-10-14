@@ -1,0 +1,21 @@
+<mat-card class="pizza-card" [class.active]="active">
+    <mat-card-header>
+        <mat-card-title>{{ (pizza.name | slice:0:50) + (pizza.name.length > 10 ? "..." : "" ) }}</mat-card-title>
+    </mat-card-header>
+    <ng-container *ngIf="pizza.photoUrl; else placeholderImage">
+        <img mat-card-image [src]="pizza.photoUrl">
+    </ng-container>
+
+    <ng-template #placeholderImage>
+        <img mat-card-image src="/assets/pizza-placeholder.png">
+    </ng-template>
+    <mat-card-content>
+        <p>
+            {{ pizza.description }}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="removePizza(pizza)">Remove</button>
+        <button mat-button (click)="modifyPizza()">EDIT</button>
+    </mat-card-actions>
+</mat-card>

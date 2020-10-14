@@ -1,0 +1,6 @@
+.pizza-card {
+  max-width: 400px;
+}
+.active {
+  background-color: green;
+}

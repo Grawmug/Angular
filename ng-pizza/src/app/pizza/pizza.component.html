@@ -1,0 +1,17 @@
+<app-home (search)="onSearch($event)"></app-home>
+
+<ul>
+    <li (click)="pizzaSelect(pizza)" *ngFor="let pizza of (pizzas | pizzaFilter: query)">
+        <app-pizza-item [pizza]="pizza" [active]="selectedPizzas.includes(pizza.id)" (remove)="removePizza(pizza)">
+        </app-pizza-item>
+    </li>
+
+    <!-- TODO 11: Dodajemy komponent stronnicowania -->
+</ul>
+
+<mat-paginator hidePageSize="true" [length]="totalPizzas" [pageSize]="pageSize" (page)="pageChanged($event)">
+</mat-paginator>
+
+<!-- DONE 8: Przenies obsługe przycisku do komponentu pizza-editor -->
+<!-- DONE 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
+<app-pizza-editor (add)="addPizza($event)"></app-pizza-editor>
